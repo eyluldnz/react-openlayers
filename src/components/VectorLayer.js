@@ -29,6 +29,10 @@ function VectorLayer() {
                   color: "blue",
                   width: 1,
                 }),
+                fill:new Fill({
+                    color: "red",
+                    opacity:0.5
+                })
               }),
         });
        

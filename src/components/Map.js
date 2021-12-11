@@ -13,8 +13,8 @@ function Map({ children, zoom, center }) {
         //componentDidMount
         const mapObject = new ol.Map({
             view: new ol.View({
-                center: [0, 0],
-    zoom: 2,
+                center: [3925805.7727269167, 4678557.627279282],
+                zoom: 6.5,
             }),
             layers: [],
         });
@@ -22,24 +22,24 @@ function Map({ children, zoom, center }) {
         setMap(mapObject);
 
         //ComponentWillUnmount
-        return ()=>mapObject.setTarget(undefined); 
-    },[]);
+        return () => mapObject.setTarget(undefined);
+    }, []);
     // zoom change handler
-	useEffect(() => {
-		if (!map) return;
+    useEffect(() => {
+        if (!map) return;
 
-		map.getView().setZoom(zoom);
-	}, [zoom]);
+        map.getView().setZoom(zoom);
+    }, [zoom]);
 
-	// center change handler
-	useEffect(() => {
-		if (!map) return;
+    // center change handler
+    useEffect(() => {
+        if (!map) return;
 
-		map.getView().setCenter(center)
-	}, [center])
+        map.getView().setCenter(center)
+    }, [center])
 
     return (
-        <MapContext.Provider value={{map}}>
+        <MapContext.Provider value={{ map }}>
             <div ref={mapRef} className="ol-map">
                 {children}
             </div>
